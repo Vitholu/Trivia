@@ -1,0 +1,10 @@
+.gameboard {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
+
+	max-width: 56.25rem;
+	padding-top: 4rem;
+}
