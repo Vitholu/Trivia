@@ -29,3 +29,8 @@
 	border: 2px solid #e2e2e2;
 	background-color: #ffffff;
 }
+
+.correct {
+	background-color: green;
+	color: #ffffff;
+}

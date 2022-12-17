@@ -2,7 +2,8 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	align-items: center;
+
+	flex-direction: column;
 	gap: 2rem;
 
 	max-width: 56.25rem;

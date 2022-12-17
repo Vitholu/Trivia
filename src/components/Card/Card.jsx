@@ -1,23 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './card.css';
 
-const Card = () => {
+const Card = ({ question, correctAnswer, incorrectAnswers }) => {
+	const choiceArray = [correctAnswer, ...incorrectAnswers];
+	const [correctChoice, setCorrectChoice] = useState([]);
+
+	const handleClick = (choice) => {
+		if (choice === correctAnswer) {
+			setCorrectChoice(choice);
+		}
+	};
+
 	return (
 		<article className='card'>
-			<h2 className='question'>Taxi Driver was released in which year?</h2>
+			<h2 className='question'>{question}</h2>
 			<ul className='answers'>
-				<li>
-					<button className='choice'>Answer 1</button>
-				</li>
-				<li>
-					<button className='choice'>Answer 2</button>
-				</li>
-				<li>
-					<button className='choice'>Answer 3</button>
-				</li>
-				<li>
-					<button className='choice'>Answer 4</button>
-				</li>
+				{choiceArray
+					.map((value) => ({ value, sort: Math.random() }))
+					.sort((a, b) => a.sort - b.sort)
+					.map(({ value }) => (
+						<li key={value}>
+							<button
+								className={`choice ${value === correctChoice && 'correct'}`}
+								onClick={() => handleClick(value)}>
+								{value}
+							</button>
+						</li>
+					))}
 			</ul>
 		</article>
 	);

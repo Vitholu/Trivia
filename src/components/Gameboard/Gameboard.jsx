@@ -11,12 +11,14 @@ const Gameboard = () => {
 
 	return (
 		<div className='gameboard'>
-			<Card />
-			<Card />
-			<Card />
-			<Card />
-			<Card />
-			<Card />
+			{questionsArray.map((a) => (
+				<Card
+					question={a.question}
+					correctAnswer={a.correctAnswer}
+					incorrectAnswers={a.incorrectAnswers}
+					key={a.id}
+				/>
+			))}
 		</div>
 	);
 };
